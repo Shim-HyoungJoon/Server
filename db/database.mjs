@@ -8,3 +8,13 @@ export async function connectDB() {
         db = client.db("Xdb")
     })
 }
+
+// users 컬렉션 객체
+export function getUsers() {
+    return db.collection("users")
+}
+
+// posts 컬렉션 객체
+export function getPosts() {
+    return db.collection("posts")
+}
