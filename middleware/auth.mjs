@@ -13,8 +13,6 @@ export const isAuth = async (req, res, next) => {
         return res.status(401).json(AUTH_ERROR)
     }
 
-    // Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNDVmNTZmYTYzMmY0OGQwODQ4MjIzOSIsImlhdCI6MTc4MzAzODA1NCwiZXhwIjoxNzgzMTI0NDU0fQ.LQs2-5znmGPKP7QIKRlv86yJRzUfZFp6mNpe9j7BtPs
-
     const token = authHeader.split(" ")[1]
     jwt.verify(token, config.jwt.secretKey, async (error, decoded) => {
         if (error) {
@@ -33,4 +31,4 @@ export const isAuth = async (req, res, next) => {
         req.token = token
         next()
     })
-} 
+}
